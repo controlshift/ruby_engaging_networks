@@ -13,6 +13,7 @@ end
 require 'active_support/all'
 require 'active_model'
 require 'stringio'
+require 'mechanize'
 
 require 'engaging_networks/version'
 require 'engaging_networks/client'
@@ -29,4 +30,4 @@ require 'engaging_networks/response/raise_error'
 require 'engaging_networks/response/collection'
 require 'engaging_networks/response/object'
 
-
+require 'engaging_networks/scrape/client'

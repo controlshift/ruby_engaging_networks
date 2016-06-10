@@ -17,5 +17,9 @@ module EngagingNetworks
       "/ea-action/action"
     end
 
+    def scrape
+      @scrape ||= EngagingNetworks::Scrape::Client.new(username: client.connection.configuration.options[:username], password: client.connection.configuration.options[:password])
+    end
+
   end
 end

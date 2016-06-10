@@ -48,6 +48,12 @@ action.job_id
 => '1234'
 ```
 
+Create a campaign via screen scrape
+```ruby
+id = en.campaign.create(name: 'ControlShift test 2', description: 'description')
+# returns the campaign id
+```
+
 Search for a campaign by name (exact match only)
 
 ```ruby

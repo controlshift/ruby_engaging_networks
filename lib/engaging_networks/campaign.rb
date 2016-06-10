@@ -5,6 +5,10 @@ module EngagingNetworks
             token_type: EngagingNetworks::Request::MultiTokenAuthentication::PUBLIC})
     end
 
+    def create(name:, description:, ajax_enabled: true)
+      scrape.create_campaign(name: name, description: description, ajax_enabled: ajax_enabled)
+    end
+
     # implements https://www.e-activist.com/ea-dataservice/import.jsp
     def duplicate(a)
       # accept either hashes or objects as input
