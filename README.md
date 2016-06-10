@@ -14,7 +14,15 @@ create a client object
 
 ```ruby
 require 'engaging_networks'
-en = EngagingNetworks.new({public_token: 'PUBLIC_TOKEN',private_token: 'PRIVATE_TOKEN'})
+en = EngagingNetworks.new({public_token: 'PUBLIC_TOKEN', private_token: 'PRIVATE_TOKEN'})
+```
+
+If you need to use and endpoint like campaign create that screen scrapes, you'll also need to set an EN username and password for a
+user that has permission.
+
+```ruby
+require 'engaging_networks'
+en = EngagingNetworks.new({public_token: 'PUBLIC_TOKEN', private_token: 'PRIVATE_TOKEN', username: 'foo', password: 'bar'})
 ```
 
 Get a campaign by id
