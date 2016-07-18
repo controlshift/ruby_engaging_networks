@@ -22,6 +22,7 @@ module EngagingNetworks
       hsh = {
         'Title' => title,
         'Email address' => email,
+        'Email addressConfirm' => email,
         'First name' => first_name,
         'Last name' => last_name,
         'City' => city,
