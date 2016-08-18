@@ -1,6 +1,6 @@
 module EngagingNetworks
   class ActionCreateAction < ActionModel
-    attr_accessor :client_id, :campaign_id, :form_id, :title, :first_name, :last_name, :city, :country, :country_name,  :email, :address_line_1,
+    attr_accessor :client_id, :campaign_id, :form_id, :title, :first_name, :last_name, :city, :country, :country_name,  :county, :email, :address_line_1,
                   :address_line_2, :post_code, :state, :mobile_phone, :originating_action, :additional_fields, :result, :raw_response, :opt_in
 
     validates :client_id,  presence: true, numericality: true
@@ -27,6 +27,7 @@ module EngagingNetworks
         'Last name' => last_name,
         'City' => city,
         'Country' => country,
+        'County' => county,
         'Country Name' => country_name,
         'Address Line 1' => address_line_1,
         'Address Line 2' => address_line_2,
