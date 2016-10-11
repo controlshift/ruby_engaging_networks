@@ -70,7 +70,7 @@ describe EngagingNetworks::Campaign do
       let(:body) { fixture('import.service/error.txt') }
 
       it 'should raise an exception' do
-        expect { en.campaign.duplicate(params) }.to raise_error(StandardError)
+        expect { en.campaign.duplicate(params) }.to raise_error(EngagingNetworks::CampaignDuplicationError).with_message('error while duplicating campaign: Error: Unable to process your import. Please contact support.')
       end
     end
   end

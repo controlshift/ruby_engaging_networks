@@ -1,4 +1,7 @@
 module EngagingNetworks
+  class CampaignDuplicationError < StandardError
+  end
+
   class Campaign < Base
     def get(campaignId)
       client.get_request(data_path, {service: 'EaCampaignInfo', campaignId: campaignId,
@@ -26,7 +29,7 @@ module EngagingNetworks
         if response.body =~ /uploaded successfully/
           action.job_id = /# is (\d*)/.match(response.body)[1]
         else
-          raise "error while duplicating campaign: #{response.body}"
+          raise CampaignDuplicationError.new("error while duplicating campaign: #{response.body}")
         end
       end
 
@@ -45,4 +48,5 @@ module EngagingNetworks
     end
 
   end
+
 end
