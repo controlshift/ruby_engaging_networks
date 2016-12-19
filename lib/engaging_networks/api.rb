@@ -3,10 +3,9 @@ require 'engaging_networks/request/multitoken'
 module EngagingNetworks
   class API < Vertebrae::API
 
-    def request_with_wrapper( *args )
-      EngagingNetworks::Response::Wrapper.new( request_without_wrapper( *args ) )
+    def request(*args)
+      EngagingNetworks::Response::Wrapper.new( super(*args) )
     end
-    alias_method_chain :request, :wrapper
 
     def default_options
       {
