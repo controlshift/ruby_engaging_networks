@@ -49,7 +49,11 @@ module EngagingNetworks
         rsp = client.post_request_with_get_params(action_path, {'format'=>'json'}, post_params)
         action.raw_response = rsp
         body = rsp.body
-        json_body = JSON.parse(body)
+        begin
+          json_body = JSON.parse(body)
+        rescue JSON::ParserError => e
+          EngagingNetworks::InvalidActionError.new("Unable to parse JSON, Engaging Networks responded with: #{ body }; json: #{e.message} headers: #{rsp.headers} status: #{rsp.status}")
+        end
 
         # parse json for first form field, apisuccess div
         if json_body['messages'].empty? || body =~ /apisuccess/
