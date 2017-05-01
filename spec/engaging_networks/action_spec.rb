@@ -50,5 +50,13 @@ describe EngagingNetworks::Action do
         expect { en.action.create(input_hash) }.to raise_error(EngagingNetworks::InvalidActionError)
       end
     end
+
+    describe 'invalid json' do
+      let(:body) { '{hello: unclosed'}
+
+      it 'should raise' do
+        expect { en.action.create(input_hash) }.to raise_error(EngagingNetworks::InvalidJsonResponseError)
+      end
+    end
   end
 end

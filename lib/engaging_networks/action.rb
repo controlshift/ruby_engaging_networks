@@ -3,6 +3,7 @@ require 'nokogiri'
 
 module EngagingNetworks
   class InvalidActionError < StandardError ; end
+  class InvalidJsonResponseError < StandardError ; end
 
   class Action < Base
     # individual get unavailable
@@ -52,7 +53,7 @@ module EngagingNetworks
         begin
           json_body = JSON.parse(body)
         rescue JSON::ParserError => e
-          EngagingNetworks::InvalidActionError.new("Unable to parse JSON, Engaging Networks responded with: #{ body }; json: #{e.message} headers: #{rsp.headers} status: #{rsp.status}")
+          raise EngagingNetworks::InvalidJsonResponseError.new("Unable to parse JSON, Engaging Networks responded with: #{ body }; json: #{e.message} headers: #{rsp.headers} status: #{rsp.status}")
         end
 
         # parse json for first form field, apisuccess div
