@@ -11,5 +11,5 @@ group :development do
   gem 'webmock'
   gem 'pry-byebug'
   gem "bundler"
-  gem "jeweler", "~> 2.0.0"
+  gem "jeweler"
 end
