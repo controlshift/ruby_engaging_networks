@@ -1,3 +1,7 @@
+# NOTICE
+
+**This gem has been deprecated in favor of [engaging-networks-rest](https://github.com/controlshift/engaging-networks-rest) that uses the new Engaging Network Services API.**
+
 # engaging_networks
 
 A ruby binding for the Engaging Networks API
